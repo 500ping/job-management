@@ -12,12 +12,6 @@ A Python-based RESTful API for managing scheduled jobs using Flask, Flask-RESTfu
 ## Requirements
 
 - Python `>=3.12,<4.0`
-- Dependencies:
-  - Flask `>=3.1.0,<4.0.0`
-  - Flask-RESTful `>=0.3.10,<0.4.0`
-  - Flask-CORS `>=5.0.1,<6.0.0`
-  - APScheduler `>=3.11.0,<4.0.0`
-  - Requests `>=2.32.3,<3.0.0`
 
 ## Installation
 
@@ -42,9 +36,14 @@ A Python-based RESTful API for managing scheduled jobs using Flask, Flask-RESTfu
 
 2. Access the API at `http://localhost:6699`.
 
+## Deployment
+
+1. Using docker
+    ```bash
+    docker build -t job-management .
+    docker run -p 6699:6699 --name job-management-app job-management
+    ```
+
 ## License
 
 This project is licensed under the MIT License.
-```
-
-Replace `<repository-url>` with the actual URL of your repository. You can further customize this README as needed.
