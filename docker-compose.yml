@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: job-management-postgres
+    environment:
+      POSTGRES_USER: jobuser
+      POSTGRES_PASSWORD: jobpassword
+      POSTGRES_DB: jobmanagement
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jobuser -d jobmanagement"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
