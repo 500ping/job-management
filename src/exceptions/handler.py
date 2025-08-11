@@ -14,6 +14,13 @@ def register_error_handlers(app):
         response.status_code = error.status_code
         return response
 
+    @app.errorhandler(404)
+    def handle_not_found(error):
+        logger.error(f"Not Found: {str(error)}", exc_info=True)
+        response = jsonify({"status": 404, "message": "Resource not found"})
+        response.status_code = 404
+        return response
+
     @app.errorhandler(Exception)
     def handle_unexpected_error(error):
         logger.error(f"Unexpected error: {str(error)}", exc_info=True)
